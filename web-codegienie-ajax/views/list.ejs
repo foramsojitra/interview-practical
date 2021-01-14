@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Detail</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style type="text/css">
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <script type="text/javascript">
+        $(document).ready(() => { });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>User List</h1>
+
+        <div class="row">
+
+            <div class="col-lg-2">
+                <form method="get" action="/">
+                    <div class="form-group row">
+                        <div class="col-lg-2" style="float: left;">
+                            <input value="Back to dashboard" type="submit" class="btn btn-primary">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Profile</th>
+                        <th>Name</th>
+                        <th>Efficiency</th>
+                        <th>Salary</th>
+                        <th>Experience</th>
+                        <th>Created At</th>
+                    </tr>
+                </thead>
+                <% for (var i=0; i < data.length; i++) { %>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img style="height: 50px; width: 50px;" src="http://localhost:2000/<%= data[i].image %>"/>
+                            </td>
+                            <td>
+                                <%= data[i].name %>
+                            </td>
+                            <td>
+                                <%= data[i].efficiency %>
+                            </td>
+                            <td>
+                                <%= data[i].salary %>
+                            </td>
+                            <td>
+                                <%= data[i].total_experience %>
+                            </td>
+                            <td>
+                                <%= moment(data[i].created_on).format("DD MMM 'YY") %></br><%= moment(data[i].created_on).format("hh:mm a") %>
+                          </td>
+                      </tr>
+                  </tbody>
+                  <% } %>
+			</table>
+		</div>
+
+
+	</div>
+</body>
+
+</html>
